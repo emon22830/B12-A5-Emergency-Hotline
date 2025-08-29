@@ -3,7 +3,7 @@
         let copyCount = 0;
         let callHistory = [];
 
-        // Get DOM elements
+        
         const loveCountElement = document.getElementById('loveCount');
         const coinCountElement = document.getElementById('coinCount');
         const copyCountElement = document.getElementById('copyCount');
@@ -15,7 +15,7 @@
         const cancelCallBtn = document.getElementById('cancelCall');
         const confirmCallBtn = document.getElementById('confirmCall');
 
-        // Store current call info
+       
         let currentCallInfo = null;
 
         // Love button functionality
@@ -51,13 +51,13 @@
                 const card = copyBtn.closest('.bg-white');
                 const phoneNumber = card.querySelector('.text-4xl').textContent;
 
-                // Copy to clipboard
+               
                 navigator.clipboard.writeText(phoneNumber).then(function () {
-                    // Update copy count
+                    
                     copyCount++;
                     updateNavbarCounters();
 
-                    // Show feedback
+                    
                     const originalContent = copyBtn.innerHTML;
                     copyBtn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
                     copyBtn.classList.add('bg-green-100', 'text-green-700');
@@ -80,7 +80,8 @@
 
                 const callBtn = event.target.closest('.call-btn');
                 const card = callBtn.closest('.bg-white');
-                const serviceName = card.querySelector('.font-bold.text-lg').textContent;
+                const serviceName = card.querySelector('.font-bold').textContent;
+
                 const phoneNumber = card.querySelector('.text-4xl').textContent;
 
                 // Store current call info
@@ -130,12 +131,7 @@
             }
         });
 
-        // Close modal when clicking outside
-        callModal.addEventListener('click', function (event) {
-            if (event.target === callModal) {
-                hideCallModal();
-            }
-        });
+       
 
         // Add to call history
         function addToCallHistory(serviceName, phoneNumber) {
